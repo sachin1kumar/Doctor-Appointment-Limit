@@ -1,4 +1,4 @@
-package com.doctor.appointments.doctorappointments.model;
+package com.get.appointment.limit.GetAppointmentLimit.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

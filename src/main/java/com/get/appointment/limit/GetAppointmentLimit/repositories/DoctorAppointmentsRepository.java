@@ -1,6 +1,6 @@
-package com.doctor.appointments.doctorappointments.repositories;
+package com.get.appointment.limit.GetAppointmentLimit.repositories;
 
-import com.doctor.appointments.doctorappointments.model.DoctorAppointments;
+import com.get.appointment.limit.GetAppointmentLimit.model.DoctorAppointments;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

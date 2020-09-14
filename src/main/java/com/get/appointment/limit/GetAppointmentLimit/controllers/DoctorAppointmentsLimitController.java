@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/doctor-appointment-limit")
-public class DoctorAppointmentsController {
+public class DoctorAppointmentsLimitController {
 
     @Autowired
     private DoctorAppointmentsRepository doctorAppointmentsRepository;
