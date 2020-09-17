@@ -25,8 +25,17 @@ public class DoctorAppointmentsLimitController {
         List<DoctorAppointments> listOfAppointments = doctorAppointmentsRepository.findAll();
         ResponseLimit responseLimit = new ResponseLimit();
         for (DoctorAppointments doctorAppointment : listOfAppointments) {
-            if(doctorAppointment.getToday_date().equalsIgnoreCase(doctorAppointments.getToday_date()) &&
-                    doctorAppointment.getId().equals(doctorAppointments.getId())) {
+            String dataFromTable = "";
+            if(doctorAppointment.getAppointment_date() != null){
+                 dataFromTable = doctorAppointment.getAppointment_date().getDate()
+                        +"-"+doctorAppointment.getAppointment_date().getMonth()
+                        +"-"+doctorAppointment.getAppointment_date().getYear();
+            }
+            String dataFromRequest = doctorAppointments.getAppointment_date().getDate()
+                    +"-"+doctorAppointments.getAppointment_date().getMonth()
+                    +"-"+doctorAppointments.getAppointment_date().getYear();
+            if(dataFromTable.equalsIgnoreCase(dataFromRequest) && doctorAppointment.getAppointment_date() != null &&
+                    doctorAppointment.getDoctor_id().equals(doctorAppointments.getDoctor_id())) {
                 responseLimit.setAppointment_limit(doctorAppointment.getAppointment_limit());
             }
         }

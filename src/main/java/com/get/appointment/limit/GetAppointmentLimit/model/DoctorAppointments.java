@@ -1,32 +1,28 @@
 package com.get.appointment.limit.GetAppointmentLimit.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigInteger;
+import java.util.Date;
 
 @Entity(name = "doctor_appointments")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class DoctorAppointments {
 
     @Id
-    private BigInteger id;
+    private BigInteger doctor_id;
     private boolean enable_disable;
     private BigInteger appointment_limit;
     private BigInteger next_appointment_limit;
-    private String today_date;
+
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private Date appointment_date;
 
     public DoctorAppointments() {
 
-    }
-
-    public BigInteger getId() {
-        return id;
-    }
-
-    public void setId(BigInteger id) {
-        this.id = id;
     }
 
     public boolean isEnable_disable() {
@@ -53,11 +49,19 @@ public class DoctorAppointments {
         this.next_appointment_limit = next_appointment_limit;
     }
 
-    public String getToday_date() {
-        return today_date;
+    public Date getAppointment_date() {
+        return appointment_date;
     }
 
-    public void setToday_date(String today_date) {
-        this.today_date = today_date;
+    public void setAppointment_date(Date appointment_date) {
+        this.appointment_date = appointment_date;
+    }
+
+    public BigInteger getDoctor_id() {
+        return doctor_id;
+    }
+
+    public void setDoctor_id(BigInteger doctor_id) {
+        this.doctor_id = doctor_id;
     }
 }
